@@ -27,7 +27,7 @@ package org.syslog_ng.elasticsearch_v2.client.esnative;
 import java.util.ArrayList;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.plugins.Plugin;
-import org.elasticsearch.shield.ShieldPlugin;
+import org.elasticsearch.xpack.XPackPlugin;
 import org.syslog_ng.elasticsearch_v2.ElasticSearchOptions;
 import org.syslog_ng.elasticsearch_v2.client.esnative.ESTransportClient;
 
@@ -40,7 +40,7 @@ public class ESTransportShieldClient extends ESTransportClient {
 	@Override
     public Client createClient() {
 	    ArrayList<Class<? extends Plugin>> plugins = new ArrayList<Class<? extends Plugin>>();    
-        plugins.add(ShieldPlugin.class);
+        plugins.add(XPackPlugin.class);
         
         super.createClient(plugins);
         return transportClient;
